@@ -1,0 +1,50 @@
+<!-- Write an HTML page with JavaScript that takes a number from popup box in the range 0
+999 and display it in words. If the number is out of range, it should show “out of range” and 
+if it is not a number ,it should show “not a number” message in the result box. (A) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-2-6</title>
+</head>
+<body>
+<script type="text/javascript">
+	n = parseInt(prompt("Enter a number (0-999) "));
+	if(n<0 || n>999){
+		alert("out of range");
+	}
+	if(isNaN(n)){
+		alert("not a number");
+	}
+	teens = ["","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"];
+	tens = ["","Ten","Twenty","Thirty","Fourty","Fifty","Sixty","Seventy","Eighty","Ninety"];
+	ones = ["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"];
+	s = "";
+	if(n==0){
+		s = "Zero";
+	}
+	if(n>=100){
+		s += ones[Math.floor(parseInt(n/100))]+" Hundred ";
+		n = parseInt(n%100);
+	}
+	if(n>=20){
+		s += tens[Math.floor(parseInt(n/10))]+" ";
+		n = parseInt(n%10);
+	}
+	if(n>10){
+		s += teens[parseInt(n%10)]+" ";
+		n = 0;
+	}
+	if(n==10){
+		s += "Ten";
+		n=0;
+	}
+	if(n>0){
+		s += ones[parseInt(n)]+" ";
+	}
+	alert("Word = "+s);
+</script>
+</body>
+</html>

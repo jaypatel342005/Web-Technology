@@ -1,0 +1,30 @@
+<!-- 6. WAP in JavaScript to check whether the given number is Armstrong or not. (A) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab-1-6</title>
+</head>
+<body>
+	<script type="text/javascript">
+		n = parseInt(prompt("Enter a number"));
+		temp = n;
+		digit=0;
+		a = n;
+		num=0;
+		while(temp!=0){
+			digit++;
+			temp = parseInt(temp/10);
+		}
+		while(a!=0){
+			num = num + Math.pow(parseInt(a%10),digit);
+			a = parseInt(a/10);
+		}
+		if(num == n){
+			alert("Is Armstrong");
+		}
+		else{
+			alert("Is not an Armstrong");
+		}
+	</script>
+</body>
+</html>

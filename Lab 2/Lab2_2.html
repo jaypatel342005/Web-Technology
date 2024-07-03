@@ -1,0 +1,24 @@
+<!-- 2. WAP in JavaScript to prime number between the given range of number. (A) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab-2-2</title>
+</head>
+<body>
+<script type="text/javascript">
+	a = parseInt(prompt("Enter lower number "));
+	b = parseInt(prompt("Enter higher number "));
+	for(i=a;i<=b;i++){
+		count=0;
+		for(j=1;j<=i;j++){
+			if(i%j==0){
+				count++;
+			}
+		}
+		if(count==2){
+			document.write(i+",");
+		}
+	}
+</script>
+</body>
+</html>

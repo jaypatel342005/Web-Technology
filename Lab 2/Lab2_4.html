@@ -1,0 +1,19 @@
+<!-- 4. WAP in JavaScript to print the GCD of two number. (A) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab-2-4</title>
+</head>
+<body>
+<script type="text/javascript">
+	a = parseInt(prompt("Enter the lower number : "));
+	b = parseInt(prompt("Enter the higher number : "));
+	for(i=1;i<=a;i++){
+		if(a%i==0 && b%i==0){
+			gcd = i;
+		}
+	}
+	document.write("GCD = "+gcd);
+</script>
+</body>
+</html>

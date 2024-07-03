@@ -1,0 +1,17 @@
+<!-- 5. Write a JavaScript to take 2-digit number and then separate these 2 digits, then multiply 
+ƒrst digit by itself for second digit times. (B)
+ (For example, 23 should be separated as 2 and 3. 2 should multiply with itself 3 times). -->
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Lab-2-5</title>
+</head>
+<body>
+<script type="text/javascript">
+	n = parseInt(prompt("Enter a 2-digit number"));
+	f = Math.floor(n/10);
+	l = n%10;
+	document.write("Ans = "+Math.pow(f,l));
+</script>
+</body>
+</html>

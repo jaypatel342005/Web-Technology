@@ -1,0 +1,40 @@
+<!-- 3. WAP to display given patterns using JavaScript. (A) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab-2-3</title>
+</head>
+<body>
+<script type="text/javascript">
+	n = parseInt(prompt("Enter a number"));
+	document.write("Pattern 1:-<br>");
+
+	for(i=1;i<=n;i++){
+		for(j=1;j<=i;j++){
+			document.write("*");
+		}
+		document.write("<br>");
+	}
+	document.write("Pattern 2:-<br>");
+	for(i=1;i<=n;i++){
+		for(j=n;j>=i;j--){
+			document.write(" &nbsp;");
+		}
+		for(k=1;k<=i;k++){
+			document.write("* ");
+		}
+		document.write("<br>");
+	}
+	document.write("Pattern 3:-<br>");
+	for(i=1;i<=n;i++){
+		for(j=n;j>=i;j--){
+			document.write(" &nbsp;");
+		}
+		for(k=1;k<=i;k++){
+			document.write("*");
+		}
+		document.write("<br>");
+	}
+</script>
+</body>
+</html>

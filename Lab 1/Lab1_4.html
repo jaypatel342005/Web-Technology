@@ -1,0 +1,27 @@
+<!-- 4. WAP in JavaScript to print the Fibonacci series of a number. (A) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isPalindrome(number) {
+            const str = number.toString();
+            const reversedStr = str.split('').reverse().join('');
+            return str === reversedStr;
+        }
+        
+        // Example usage:
+        const number = prompt("Enter a number: ");
+        if (isPalindrome(number)) {
+            console.log(number + " is a palindrome.");
+        } else {
+            console.log(number + " is not a palindrome.");
+        }
+        
+    </script>
+</body>
+</html>
