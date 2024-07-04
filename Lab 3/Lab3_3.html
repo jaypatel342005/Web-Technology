@@ -1,0 +1,58 @@
+<!-- 3. WAP to read an array from the user and sort them using bubble sort. (A) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #0074D9;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bubble Sort</h1>
+    <p>Enter numbers separated by commas:</p>
+    <input type="text" id="inputArray" placeholder="e.g., 5, 2, 8, 1, 3">
+    <button onclick="sortArray()">Sort</button>
+    <p>Sorted array:</p>
+    <div id="sortedArray"></div>
+
+    <script>
+        function bubbleSort(arr) {
+            const n = arr.length;
+            for (let i = 0; i < n - 1; i++) {
+                for (let j = 0; j < n - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        // Swap arr[j] and arr[j + 1]
+                        const temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
+        function sortArray() {
+            const input = document.getElementById("inputArray").value;
+            const numbers = input.split(",").map(Number);
+            bubbleSort(numbers);
+            document.getElementById("sortedArray").textContent = numbers.join(", ");
+        }
+    </script>
+</body>
+</html>

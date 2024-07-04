@@ -1,0 +1,30 @@
+<!-- 2. WAP to read an array from the user and sort them in ascending order. (A) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-3-2</title>
+</head>
+<body>
+<script type="text/javascript">
+	n = prompt("Enter size of array : ");
+	let arr = [];
+	for(let i=0;i<n;i++){
+		arr[i] = prompt("Enter value of arr["+i+"] : ");
+	}
+	let temp=0;
+	for(let i=0;i<n;i++){
+		for(let j=i+1;j<n;j++){
+			if(arr[i] > arr[j]){
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+	}
+	alert(arr);
+</script>
+</body>
+</html>

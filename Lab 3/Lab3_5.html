@@ -1,0 +1,78 @@
+<!-- 5. Write a JavaScript that uses a loop that searches a word in sentence held in an array, 
+returning the index of the word. (B) -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-3-5</title>
+</head>
+<body>
+<script type="text/javascript">
+	n = prompt("Enter number of words in the sentence : ");
+	let arr = [];
+	for(let i=0;i<n;i++){
+		arr[i] = prompt("Enter value of arr["+i+"] : ");
+	}
+	let word = prompt("Enter the word you want to search : ");
+	for(let i=0;i<n;i++){
+		if(word == arr[i]){
+			alert("Index = "+i);
+			break;
+		}
+	}
+</script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #0074D9;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word Search</h1>
+    <p>Enter a sentence:</p>
+    <input type="text" id="inputSentence" placeholder="e.g., The quick brown fox jumps over the lazy dog">
+    <p>Enter the word to search:</p>
+    <input type="text" id="searchWord" placeholder="e.g., jumps">
+    <button onclick="searchWord()">Search</button>
+    <p>Word index (if found): <span id="result"></span></p>
+
+    <script>
+        function searchWord() {
+            const sentence = document.getElementById("inputSentence").value;
+            const word = document.getElementById("searchWord").value.toLowerCase();
+
+            const wordsArray = sentence.toLowerCase().split(" ");
+            const index = wordsArray.indexOf(word);
+
+            if (index !== -1) {
+                document.getElementById("result").textContent = index.toString();
+            } else {
+                document.getElementById("result").textContent = "Not found";
+            }
+        }
+    </script>
+</body>
+</html>

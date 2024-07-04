@@ -1,0 +1,24 @@
+<!-- 1. Demonstrate the use of array to ƒind maximum number. (A) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-3-1</title>
+</head>
+<body>
+<script type="text/javascript">
+	let n = prompt("Enter size of array : ");
+	let arr = [];
+	for(let i=0;i<n;i++){
+		arr[i] = prompt("Enter value of arr["+i+"] : ");
+	}
+	let max=arr[0];
+	for(let i=0;i<n;i++){
+		max = Math.max(max,arr[i]);
+	}
+	alert("Maximum = "+max);
+</script>
+</body>
+</html>
