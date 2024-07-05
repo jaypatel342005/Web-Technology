@@ -1,0 +1,78 @@
+<!-- 2. Demonstrate different array functions like push, pop, shift, unshift, splice, sort etc… (A) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-4-2</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+			background-color: #f4f4f9;
+			color: #333;
+		}
+		.container {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
+			background: #fff;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		h1 {
+			text-align: center;
+			color: #444;
+		}
+		button {
+			display: inline-block;
+			margin: 10px 0;
+			padding: 10px 20px;
+			font-size: 16px;
+			color: #fff;
+			background-color: #007bff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #0056b3;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Array Manipulation</h1>
+		<button onclick="manipulateArray()">Start</button>
+	</div>
+<script type="text/javascript">
+	function manipulateArray() {
+		let n = prompt("Enter size of array : ");
+		let arr = [];
+		for(let i=0;i<n;i++){
+			arr[i] = prompt("Enter value of arr["+i+"] : ");
+		}
+		arr.sort();
+		alert("After sorting : "+arr);
+		let push = prompt("Enter value to push : ");
+		arr.push(push);
+		alert("After push : "+arr);
+		let unshift = prompt("Enter value to unshift : ");
+		arr.unshift(unshift);
+		alert("After unshift : "+arr);
+		arr.pop();
+		alert("After pop : "+arr);
+		arr.shift();
+		alert("After shift : "+arr);
+		let splice_num = prompt("Enter value you want to enter : ");
+		let splice_index = prompt("Enter index where you want to enter : ");
+		arr.splice(splice_index, 0, splice_num);
+		alert("After splice : "+arr);
+		let low = prompt("Enter lowest index : ");
+		let high = prompt("Enter highest index : ");
+		let slicedArray = arr.slice(low, high);
+		alert("After slice : "+slicedArray);
+	}
+</script>
+</body>
+</html>

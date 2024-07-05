@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-4-4</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+			background-color: #f4f4f9;
+			color: #333;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background: #fff;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		h1 {
+			text-align: center;
+			color: #444;
+		}
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 20px;
+		}
+		th, td {
+			padding: 12px;
+			text-align: left;
+			border: 1px solid #ddd;
+		}
+		th {
+			background-color: #f2f2f2;
+		}
+		tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+		tr:hover {
+			background-color: #f1f1f1;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Product List</h1>
+		<table id="productTable">
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Brand</th>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript">
+		let n = prompt("Enter total number of products : ");
+		let Products = [];
+		for(let i=0; i<n; i++){
+			Products[i] = {
+				"name" : prompt("Enter name["+i+"] : "),
+				"price" : prompt("Enter price["+i+"] : "),
+				"brand" : prompt("Enter brand["+i+"] : ")
+			};
+		}
+		let table = document.getElementById('productTable');
+		for(let i=0; i<Products.length; i++){
+			let row = table.insertRow();
+			row.insertCell(0).innerText = Products[i].name;
+			row.insertCell(1).innerText = Products[i].price;
+			row.insertCell(2).innerText = Products[i].brand;
+		}
+	</script>
+</body>
+</html>

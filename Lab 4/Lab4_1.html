@@ -1,0 +1,57 @@
+<!-- 1. WAP to display Faculties stored in array. (A) --><!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lab-4-1</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border: 1px solid #ddd;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+        </style>
+    </head>
+    <body>
+    <script type="text/javascript">
+        let n = prompt("Enter total number of faculties : ");
+        let Faculties = [];
+        for(let i = 0; i < n; i++){
+            Faculties[i] = {
+                "name" : prompt("Enter name["+i+"] : "),
+                "surname" : prompt("Enter surname["+i+"] : "),
+                "subject" : prompt("Enter subject["+i+"] : ")
+            };
+        }
+    
+        document.write("<table>");
+        document.write("<tr><th>Name</th><th>Surname</th><th>Subject</th></tr>");
+        for(let i = 0; i < Faculties.length; i++){
+            document.write("<tr>");
+            document.write("<td>" + Faculties[i].name + "</td>");
+            document.write("<td>" + Faculties[i].surname + "</td>");
+            document.write("<td>" + Faculties[i].subject + "</td>");
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+    </body>
+    </html>
+    

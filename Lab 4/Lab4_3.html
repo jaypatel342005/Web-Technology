@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-4-3</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f4f4f9;
+			color: #333;
+		}
+		header {
+			background-color: #007bff;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		.container {
+			max-width: 800px;
+			margin: 20px auto;
+			padding: 20px;
+			background: #fff;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		h1 {
+			margin-bottom: 20px;
+		}
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-bottom: 20px;
+		}
+		th, td {
+			padding: 12px;
+			text-align: left;
+			border: 1px solid #ddd;
+		}
+		th {
+			background-color: #f2f2f2;
+		}
+		tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+		tr:hover {
+			background-color: #f1f1f1;
+		}
+		.form-group {
+			margin-bottom: 15px;
+		}
+		.form-group label {
+			display: block;
+			margin-bottom: 5px;
+		}
+		.form-group input {
+			width: 100%;
+			padding: 8px;
+			box-sizing: border-box;
+		}
+		button {
+			padding: 10px 20px;
+			font-size: 16px;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+		button.add {
+			background-color: #28a745;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+		}
+		button.update, button.delete {
+			background-color: #dc3545;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+		}
+		button.edit {
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Student Information</h1>
+	</header>
+	<div class="container">
+		<h1>Manage Students</h1>
+		<div class="form-group">
+			<label for="name">Name:</label>
+			<input type="text" id="name">
+		</div>
+		<div class="form-group">
+			<label for="surname">Surname:</label>
+			<input type="text" id="surname">
+		</div>
+		<div class="form-group">
+			<label for="rollNo">Roll No:</label>
+			<input type="text" id="rollNo">
+		</div>
+		<button class="add" onclick="addStudent()">Add Student</button>
+		<button class="update" onclick="updateStudent()" style="display:none;">Update Student</button>
+		<table id="studentTable">
+			<tr>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>Roll No</th>
+				<th>Actions</th>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript">
+		let Students = [];
+		let selectedIndex = -1;
+
+		function addStudent() {
+			const name = document.getElementById('name').value;
+			const surname = document.getElementById('surname').value;
+			const rollNo = document.getElementById('rollNo').value;
+			if (name && surname && rollNo) {
+				Students.push({ name, surname, rollNo });
+				displayStudents();
+				clearForm();
+			} else {
+				alert('Please fill all fields.');
+			}
+		}
+
+		function editStudent(index) {
+			document.getElementById('name').value = Students[index].name;
+			document.getElementById('surname').value = Students[index].surname;
+			document.getElementById('rollNo').value = Students[index].rollNo;
+			selectedIndex = index;
+			document.querySelector('.add').style.display = 'none';
+			document.querySelector('.update').style.display = 'inline-block';
+		}
+
+		function updateStudent() {
+			const name = document.getElementById('name').value;
+			const surname = document.getElementById('surname').value;
+			const rollNo = document.getElementById('rollNo').value;
+			if (name && surname && rollNo) {
+				Students[selectedIndex] = { name, surname, rollNo };
+				displayStudents();
+				clearForm();
+				selectedIndex = -1;
+				document.querySelector('.add').style.display = 'inline-block';
+				document.querySelector('.update').style.display = 'none';
+			} else {
+				alert('Please fill all fields.');
+			}
+		}
+
+		function deleteStudent(index) {
+			Students.splice(index, 1);
+			displayStudents();
+		}
+
+		function displayStudents() {
+			const table = document.getElementById('studentTable');
+			table.innerHTML = `
+				<tr>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Roll No</th>
+					<th>Actions</th>
+				</tr>
+			`;
+			for (let i = 0; i < Students.length; i++) {
+				let row = table.insertRow();
+				row.insertCell(0).innerText = Students[i].name;
+				row.insertCell(1).innerText = Students[i].surname;
+				row.insertCell(2).innerText = Students[i].rollNo;
+				row.insertCell(3).innerHTML = `
+					<button class="edit" onclick="editStudent(${i})">Edit</button>
+					<button class="delete" onclick="deleteStudent(${i})">Delete</button>
+				`;
+			}
+		}
+
+		function clearForm() {
+			document.getElementById('name').value = '';
+			document.getElementById('surname').value = '';
+			document.getElementById('rollNo').value = '';
+		}
+	</script>
+</body>
+</html>
