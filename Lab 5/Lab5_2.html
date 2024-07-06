@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #1de099, #1dc8cd);
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);          
+            width: 350px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: #333;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #1de099;
+            box-shadow: 0 0 5px rgba(29, 224, 153, 0.5);
+        }
+
+        input[type="button"] {
+            width: 45%;
+            padding: 0.75rem;
+            margin: 0.5rem 2.5%;
+            border: none;
+            border-radius: 5px;
+            background: #1dc8cd;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        input[type="button"]:hover {
+            background: #1de098f5;
+            color: white;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            
+        
+        }
+
+        #errorMessage {
+            color: red;
+            margin-top: 1rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form" onsubmit="return validForm()">
+        <h1>Login Page</h1>
+        <div>
+            <label for="Username">Username</label>
+            <input type="text" id="Username" placeholder="Enter Username">
+        </div>
+        <div>
+            <label for="Password">Password</label>
+            <input type="password" id="Password" placeholder="Enter Password">
+        </div>
+        <div>
+            <input type="button" id="Submit" value="Login" onclick="validForm()">
+            <input type="button" id="Reset" value="Reset" onclick="resetForm()">
+        </div>
+        <p id="errorMessage"></p>
+    </form>
+    <script>
+        function validForm() {
+            var user = document.getElementById('Username').value;
+            var pass = document.getElementById('Password').value;
+            var error = document.getElementById('errorMessage');
+            error.innerHTML = "";
+            var valid = true;
+
+            if (user === "") {
+                error.innerHTML += "Please enter Username<br/>";
+                valid = false;
+            } else if (user.length < 8) {
+                error.innerHTML += "Invalid Username<br/>";
+                valid = false;
+            }
+
+            var pass_pattern = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,12}$/;
+            if (pass === "") {
+                error.innerHTML += "Please enter Password<br/>";
+                valid = false;
+            } else if (!pass_pattern.test(pass)) {
+                error.innerHTML += "Invalid Password<br/>";
+                valid = false;
+            }
+
+            return valid;
+        }
+
+        function resetForm() {
+            document.getElementById('Username').value = "";
+            document.getElementById('Password').value = "";
+            document.getElementById('errorMessage').innerHTML = "";
+        }
+    </script>
+</body>
+</html>
