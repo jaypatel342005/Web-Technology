@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  
+</head>
+<body>
+    <form id="form" onsubmit="return validForm()">
+        <h1>Login Page</h1>
+        <div>
+            <label for="Username">Username</label>
+            <input type="text" id="Username" placeholder="Enter Username">
+        </div>
+        <div>
+            <label for="Password">Password</label>
+            <input type="password" id="Password" placeholder="Enter Password">
+        </div>
+        <div>
+            <input type="button" id="Submit" value="Login" onclick="validForm()">
+            <input type="button" id="Reset" value="Reset" onclick="resetForm()">
+        </div>
+        <p id="errorMessage"></p>
+    </form>
+   
+</body>
+</html>

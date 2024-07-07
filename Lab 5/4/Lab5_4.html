@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login Form</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <form id="form" onsubmit="return validForm()">
+        <h2>Login Form</h2>
+        <div class="input-container">
+            <label for="Username">Username: </label>
+            <input type="text" id="Username" placeholder="Enter Username" />
+        </div>
+        <div class="input-container">
+            <label for="Password">Password: </label>
+            <input type="password" id="Password" placeholder="Enter Password" />
+        </div>
+        <div class="input-container">
+            <label for="Repeat">Repeat Password: </label>
+            <input type="password" id="Repeat" placeholder="Reenter Password" />
+        </div>
+        <div class="input-container">
+            <label for="Age">Age: </label>
+            <input type="number" id="Age" placeholder="Enter Age" />
+        </div>
+        <div class="input-container">
+            <label for="Enroll">Enrollment No: </label>
+            <input type="number" id="Enroll" placeholder="Enter Enrollment No." />
+        </div>
+        <div class="input-container">
+            <label for="Email">Email: </label>
+            <input type="email" id="Email" placeholder="Enter Email">
+        </div>
+        <div>
+            <input type="submit" value="Submit" class="submit-button" />
+        </div>
+        <p id="ErrorMessage"></p>
+    </form>
+    
+    <script src="script.js"></script>
+</body>
+</html>

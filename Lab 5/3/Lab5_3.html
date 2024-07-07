@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="calculator">
+    <div class="calculator-label">Scientific Calculator</div>
+    <button class="mode-switch" onclick="toggleMode()">Switch Mode</button>
+    <form onsubmit="return false">
+        <input type="text" name="AnswerPanel" id="answer" readonly>
+        <div class="buttons">
+            <button type="button" onclick="display('0')">0</button>
+            <button type="button" onclick="display('1')">1</button>
+            <button type="button" onclick="display('2')">2</button>
+            <button type="button" onclick="display('3')">3</button>
+            <button type="button" onclick="display('4')">4</button>
+            <button type="button" onclick="display('5')">5</button>
+            <button type="button" onclick="display('6')">6</button>
+            <button type="button" onclick="display('7')">7</button>
+            <button type="button" onclick="display('8')">8</button>
+            <button type="button" onclick="display('9')">9</button>
+            <button type="button" onclick="display('+')">+</button>
+            <button type="button" onclick="display('-')">-</button>
+            <button type="button" onclick="display('*')">*</button>
+            <button type="button" onclick="display('/')">/</button>
+            <button type="button" onclick="display('.')">.</button>
+            <button type="button" onclick="display(',')">,</button>
+            <button type="button" onclick="allClear()">AC</button>
+            <button type="button" onclick="cls()">C</button>
+            <button type="button" onclick="ans()">=</button>
+            <button type="button" onclick="display('Math.sin(')">sin</button>
+            <button type="button" onclick="display('Math.cos(')">cos</button>
+            <button type="button" onclick="display('Math.tan(')">tan</button>
+            <button type="button" onclick="display('Math.log(')">log</button>
+            <button type="button" onclick="display('Math.log2(')">log2</button>
+            <button type="button" onclick="display('Math.log10(')">log10</button>
+            <button type="button" onclick="display('Math.exp(')">exp</button>
+            <button type="button" onclick="display('Math.sqrt(')">sqrt</button>
+            <button type="button" onclick="display('Math.pow(')">pow</button>
+            <button type="button" onclick="display('Math.abs(')">abs</button>
+            <button type="button" onclick="display('Math.ceil(')">ceil</button>
+            <button type="button" onclick="display('Math.floor(')">floor</button>
+            <button type="button" onclick="display('Math.random()')">rand</button>
+            <button type="button" onclick="display('(')">(</button>
+            <button type="button" onclick="display(')')">)</button>
+        </div>
+    </form>
+</div>
+c
+</body>
+</html>
