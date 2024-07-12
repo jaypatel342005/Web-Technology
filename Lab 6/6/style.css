@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left-panel {
+    background: linear-gradient(to top right, #00c6ff, #0072ff);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    width: 40%;
+}
+
+.left-panel h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.left-panel p {
+    margin: 20px 0;
+}
+
+.left-panel button {
+    padding: 10px 20px;
+    background: white;
+    color: #0072ff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.right-panel {
+    padding: 30px;
+    width: 60%;
+    background: #f3f4f6;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form h2 {
+    margin-bottom: 20px;
+    color: #0072ff;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.form-group label,
+.form-group input {
+    width: 48%;
+    box-sizing: border-box;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
