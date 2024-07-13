@@ -41,10 +41,17 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px #5a7bfa;
 }
 
 button:hover {
     background-color: #5a7bfa;
+}
+
+button:active {
+    box-shadow: 0 2px #5a7bfa;
+    transform: translateY(3px);
 }
 
 .student-list table {
@@ -69,6 +76,9 @@ button:hover {
     border-radius: 4px;
     cursor: pointer;
     padding: 5px 10px;
+    margin-right: 5px;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px #ff4c4c;
 }
 
 .student-list button.edit {
@@ -77,4 +87,9 @@ button:hover {
 
 .student-list button:hover {
     background-color: #ff4c4c;
+}
+
+.student-list button:active {
+    box-shadow: 0 2px #ff4c4c;
+    transform: translateY(3px);
 }
