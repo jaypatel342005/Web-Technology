@@ -9,52 +9,52 @@
 <body>
     <div class="container">
         <div class="left-panel">
-            <h1>JOIN US</h1>
-            <p>Subscribe Easy Tutorials YouTube Channel To More Videos</p>
+            <img src="download.png" alt="Logo" class="logo">
+            <h1>DARSHAN UNIVERSITY</h1>
+            <p>" A Path of Success " </p>
             <button>About Us</button>
         </div>
         <div class="right-panel">
-            <form id="registrationForm">
+            <form id="registrationForm" onsubmit="return validateForm()">
                 <h2>Register Here</h2>
                 <div class="form-group">
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" id="fullname" name="fullname">
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username">
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email">
                     <label for="phone">Phone Number:</label>
-                    <input type="text" id="phone" name="phone" required>
+                    <input type="tel" id="phone" name="phone">
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                    <label for="confirmPassword">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <input type="password" id="password" name="password">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password">
                 </div>
                 <div class="form-group">
                     <label for="address">Address:</label>
-                    <input type="text" id="address" name="address" required>
+                    <input type="text" id="address" name="address">
                     <label for="age">Age:</label>
-                    <input type="number" id="age" name="age" required>
+                    <input type="number" id="age" name="age">
                 </div>
                 <div class="form-group">
                     <label for="nationality">Nationality:</label>
-                    <input type="text" id="nationality" name="nationality" required>
+                    <input type="text" id="nationality" name="nationality">
                     <label for="birthdate">Birth Date:</label>
-                    <input type="date" id="birthdate" name="birthdate" required>
+                    <input type="date" id="birthdate" name="birthdate">
                 </div>
                 <div class="form-group">
                     <label for="university">University:</label>
-                    <input type="text" id="university" name="university" required>
+                    <input type="text" id="university" name="university">
                 </div>
                 <button type="submit">Register</button>
             </form>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

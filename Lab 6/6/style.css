@@ -1,6 +1,7 @@
+/* General Styling */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,44 +12,67 @@ body {
 .container {
     display: flex;
     width: 90%;
-    max-width: 1200px;
-    background: white;
-    border-radius: 10px;
+    max-width: 1000px;
+    background: #fff;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Left Panel Styling */
 .left-panel {
     background: linear-gradient(to top right, #00c6ff, #0072ff);
     color: white;
-    padding: 30px;
+    padding: 40px;
     text-align: center;
-    width: 40%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-panel .logo {
+    width: 250px;
+    margin-bottom: 20px;
+    padding-left: 30px;
 }
 
 .left-panel h1 {
     margin: 0;
-    font-size: 36px;
+    font-size: 28px;
 }
 
 .left-panel p {
     margin: 20px 0;
+    font-size: 14px;
 }
 
 .left-panel button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     background: white;
     color: #0072ff;
     border: none;
-    border-radius: 20px;
+    border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
+    transition: all 0.3s ease;
 }
 
+img{
+
+  
+
+}
+
+.left-panel button:hover {
+    background: #e6e6e6;
+}
+
+/* Right Panel Styling */
 .right-panel {
-    padding: 30px;
-    width: 60%;
-    background: #f3f4f6;
+    padding: 20px;
+    width: 65%;
+    background: #f7f9fc;
 }
 
 form {
@@ -59,25 +83,35 @@ form {
 form h2 {
     margin-bottom: 20px;
     color: #0072ff;
+    font-size: 24px;
+    text-align: center;
 }
 
 .form-group {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
-.form-group label,
-.form-group input {
+.form-group label, .form-group input {
     width: 48%;
-    box-sizing: border-box;
 }
 
 .form-group input {
-    padding: 10px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background: #e8f0fe;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.form-group input:focus {
+    border-color: #0072ff;
+    outline: none;
+    background: #d6eaff;
 }
 
 .error-message {
@@ -91,11 +125,21 @@ button[type="submit"] {
     background: linear-gradient(to right, #00c6ff, #0072ff);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
 }
 
 button[type="submit"]:hover {
     background: linear-gradient(to right, #0072ff, #00c6ff);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.44);
 }
