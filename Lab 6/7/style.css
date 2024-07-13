@@ -47,22 +47,19 @@ button:hover {
     background-color: #5a7bfa;
 }
 
-.student-list ul {
-    list-style: none;
-    padding: 0;
+.student-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.student-list li {
+.student-list th, .student-list td {
     padding: 10px;
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border: 1px solid #ccc;
 }
 
-.student-list li div {
-    flex: 1;
-    text-align: left;
+.student-list th {
+    background-color: #f4f4f4;
 }
 
 .student-list button {
@@ -72,6 +69,10 @@ button:hover {
     border-radius: 4px;
     cursor: pointer;
     padding: 5px 10px;
+}
+
+.student-list button.edit {
+    background-color: #6e8efb;
 }
 
 .student-list button:hover {
