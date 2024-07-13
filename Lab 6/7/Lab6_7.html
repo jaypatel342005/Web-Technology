@@ -3,43 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Operations on Array</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        input, button {
-            margin: 5px 0;
-        }
-        .item {
-            margin: 5px 0;
-        }
-    </style>
+    <title>Student Management Portal</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>CRUD Operations on Array</h1>
-    <div>
-        <h2>Create Item</h2>
-        <input type="text" id="newItem" placeholder="Enter new item">
-        <button onclick="createItem()">Add Item</button>
+    <div class="container">
+        <h1>Student Management Portal</h1>
+        <div class="form-container">
+            <input type="text" id="studentRollNo" placeholder="Enter roll number">
+            <input type="text" id="studentName" placeholder="Enter first name">
+            <input type="text" id="studentSurname" placeholder="Enter surname">
+            <input type="text" id="studentClass" placeholder="Enter class">
+            <button onclick="addStudent()">Add Student</button>
+        </div>
+        <div class="student-list">
+            <ul id="studentList"></ul>
+        </div>
     </div>
-    <div>
-        <h2>Items List</h2>
-        <ul id="itemsList"></ul>
-    </div>
-    <div>
-        <h2>Update Item</h2>
-        <input type="number" id="updateIndex" placeholder="Enter index to update">
-        <input type="text" id="updateItem" placeholder="Enter new value">
-        <button onclick="updateItem()">Update Item</button>
-    </div>
-    <div>
-        <h2>Delete Item</h2>
-        <input type="number" id="deleteIndex" placeholder="Enter index to delete">
-        <button onclick="deleteItem()">Delete Item</button>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
