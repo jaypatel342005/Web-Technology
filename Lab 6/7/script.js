@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('addStudentButton').addEventListener('click', addStudent);
+    document.getElementById('updateStudentButton').addEventListener('click', updateStudent);
 });
 
 let students = [];
+let currentEditIndex = -1;
 
 function addStudent() {
     const rollNo = document.getElementById('studentRollNo').value.trim();
@@ -30,22 +32,60 @@ function clearForm() {
     document.getElementById('studentName').value = '';
     document.getElementById('studentSurname').value = '';
     document.getElementById('studentClass').value = '';
+    document.getElementById('addStudentButton').style.display = 'inline-block';
+    document.getElementById('updateStudentButton').style.display = 'none';
 }
 
 function renderStudents() {
     const studentList = document.getElementById('studentList');
     studentList.innerHTML = '';
     students.forEach((student, index) => {
-        const li = document.createElement('li');
-        const studentInfo = document.createElement('div');
-        studentInfo.textContent = `Roll No: ${student.rollNo}, Name: ${student.name} ${student.surname}, Class: ${student.studentClass}`;
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.onclick = () => deleteStudent(index);
-        li.appendChild(studentInfo);
-        li.appendChild(deleteButton);
-        studentList.appendChild(li);
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${student.rollNo}</td>
+            <td>${student.name}</td>
+            <td>${student.surname}</td>
+            <td>${student.studentClass}</td>
+            <td>
+                <button class="edit" onclick="editStudent(${index})">Edit</button>
+                <button class="delete" onclick="deleteStudent(${index})">Delete</button>
+            </td>
+        `;
+        studentList.appendChild(row);
     });
+}
+
+function editStudent(index) {
+    currentEditIndex = index;
+    const student = students[index];
+    document.getElementById('studentRollNo').value = student.rollNo;
+    document.getElementById('studentName').value = student.name;
+    document.getElementById('studentSurname').value = student.surname;
+    document.getElementById('studentClass').value = student.studentClass;
+    document.getElementById('addStudentButton').style.display = 'none';
+    document.getElementById('updateStudentButton').style.display = 'inline-block';
+}
+
+function updateStudent() {
+    const rollNo = document.getElementById('studentRollNo').value.trim();
+    const name = document.getElementById('studentName').value.trim();
+    const surname = document.getElementById('studentSurname').value.trim();
+    const studentClass = document.getElementById('studentClass').value.trim();
+
+    if (rollNo && name && surname && studentClass) {
+        const student = {
+            rollNo,
+            name,
+            surname,
+            studentClass
+        };
+        students[currentEditIndex] = student;
+        clearForm();
+        renderStudents();
+        currentEditIndex = -1;
+    } else {
+        alert('Please fill in all fields');
+    }
 }
 
 function deleteStudent(index) {
