@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations on Array</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+        }
+        .item {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>CRUD Operations on Array</h1>
+    <div>
+        <h2>Create Item</h2>
+        <input type="text" id="newItem" placeholder="Enter new item">
+        <button onclick="createItem()">Add Item</button>
+    </div>
+    <div>
+        <h2>Items List</h2>
+        <ul id="itemsList"></ul>
+    </div>
+    <div>
+        <h2>Update Item</h2>
+        <input type="number" id="updateIndex" placeholder="Enter index to update">
+        <input type="text" id="updateItem" placeholder="Enter new value">
+        <button onclick="updateItem()">Update Item</button>
+    </div>
+    <div>
+        <h2>Delete Item</h2>
+        <input type="number" id="deleteIndex" placeholder="Enter index to delete">
+        <button onclick="deleteItem()">Delete Item</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
