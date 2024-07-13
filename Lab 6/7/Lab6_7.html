@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Management Portal</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -15,9 +15,21 @@
             <input type="text" id="studentSurname" placeholder="Enter surname">
             <input type="text" id="studentClass" placeholder="Enter class">
             <button id="addStudentButton">Add Student</button>
+            <button id="updateStudentButton" style="display:none;">Update Student</button>
         </div>
         <div class="student-list">
-            <ul id="studentList"></ul>
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>First Name</th>
+                        <th>Surname</th>
+                        <th>Class</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentList"></tbody>
+            </table>
         </div>
     </div>
     <script src="script.js"></script>
