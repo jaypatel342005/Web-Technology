@@ -59,3 +59,5 @@ function renderItems() {
 }
 
 document.addEventListener('DOMContentLoaded', renderItems);
+
+
