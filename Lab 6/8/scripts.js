@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     redButton.addEventListener('click', function() {
-        document.body.style.backgroundColor = 'red';
+        document.body.style.background = 'red';
     });
 
     greenButton.addEventListener('click', function() {
-        document.body.style.backgroundColor = 'green';
+        document.body.style.background = 'green';
     });
 });
