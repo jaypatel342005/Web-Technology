@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.background = 'red';
     });
 
+
     greenButton.addEventListener('click', function() {
         document.body.style.background = 'green';
     });
