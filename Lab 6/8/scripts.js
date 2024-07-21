@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const greenButton = document.getElementById('greenButton');
     const timeDisplay = document.getElementById('timeDisplay');
 
+
     heading.addEventListener('mouseover', function() {
         heading.style.color = 'yellow';
     });
