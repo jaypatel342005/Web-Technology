@@ -114,5 +114,6 @@ function deleteStudent(index) {
     renderStudents();
 }
 
+
 // Initial render
 renderStudents();
