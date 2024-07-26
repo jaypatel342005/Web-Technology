@@ -21,7 +21,7 @@ h1:hover {
 }
 
 button {
-    
+
     padding: 15px 25px;
     margin: 10px;
     font-size: 16px;
@@ -57,6 +57,7 @@ button:active {
 }
 
 #timeDisplay {
+    
     margin-top: 20px;
     font-size: 18px;
     color: #fff;
