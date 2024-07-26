@@ -46,6 +46,7 @@ function clearForm() {
     document.getElementById('addStudentButton').style.display = 'inline-block';
     document.getElementById('updateStudentButton').style.display = 'none';
 }
+
 function renderStudents() {
     const studentList = document.getElementById('studentList');
     studentList.innerHTML = '';
