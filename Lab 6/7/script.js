@@ -47,6 +47,7 @@ function clearForm() {
     document.getElementById('updateStudentButton').style.display = 'none';
 }
 
+
 function renderStudents() {
     const studentList = document.getElementById('studentList');
     studentList.innerHTML = '';
