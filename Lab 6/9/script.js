@@ -8,6 +8,7 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+
 document.addEventListener('keyup', function() {
     document.body.style.backgroundColor = 'blue';
     setTimeout(() => {
