@@ -36,6 +36,7 @@ function addStudent() {
     }
 }
 
+
 function clearForm() {
     // Clear form fields
     document.getElementById('studentRollNo').value = '';
