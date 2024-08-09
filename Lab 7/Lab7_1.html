@@ -1,0 +1,35 @@
+
+<!-- 1. WAP to demonstrate callbacks in JavaScript. (A) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab-7-1</title>
+</head>
+<body>
+	<h1><b>open console</b></h1>
+<script type="text/javascript">
+		a = prompt("Enter first number");
+		b = prompt("Enter second number");
+	 function calc(a,b,callback_add,callback_sub,callback_mul,callback_div){
+	 	callback_add(a,b);
+	 	callback_sub(a,b);
+	 	callback_mul(a,b);
+	 	callback_div(a,b);
+	 }
+	 calc(a,b,callback_add,callback_sub,callback_mul,callback_div);
+	 function callback_add(a,b){
+		console.log("Add = "+(a+b));
+	 }
+	function callback_sub(a,b){
+	 	console.log("Sub = "+(a-b));
+	 }
+	 function callback_mul(a,b){
+	 	console.log("Mul = "+(a*b));
+	 }
+	 function callback_div(a,b){
+	 	console.log("Div = "+(a/b));
+	 }
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!-- 11. Write a JavaScript having a list of checkbox and by clicking on checkbox, it should show 
+list of selected value in comma separated format. (e.g. list of roll number as checkbox 
+value, and display selected roll number in comma separated format) (C) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            background: linear-gradient(135deg, #e03f3f, #ff892f);
+            color: #333;
+        }
+        .checkbox-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        input[type="checkbox"]:checked {
+            accent-color: #ff4081;
+        }
+        #selectedValues {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="checkbox-container">
+        <label><input type="checkbox" class="roll-number" value="101"> 101</label>
+        <label><input type="checkbox" class="roll-number" value="102"> 102</label>
+        <label><input type="checkbox" class="roll-number" value="103"> 103</label>
+        <label><input type="checkbox" class="roll-number" value="104"> 104</label>
+        <label><input type="checkbox" class="roll-number" value="105"> 105</label>
+    </div>
+    <div id="selectedValues">Selected Roll Numbers: </div>
+
+    <script>
+        const checkboxes = document.querySelectorAll('.roll-number');
+        const selectedValuesDiv = document.getElementById('selectedValues');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const selectedValues = [];
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        selectedValues.push(cb.value);
+                    }
+                });
+                selectedValuesDiv.textContent = 'Selected Roll Numbers: ' + selectedValues.join(', ');
+            });
+        });
+    </script>
+</body>
+</html>

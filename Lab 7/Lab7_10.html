@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #message {
+            font-size: 2rem;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="message">Click anywhere</div>
+    <script>
+        document.addEventListener('mousedown', function(event) {
+            const message = document.getElementById('message');
+            if (event.button === 0) { // Left mouse button
+                message.textContent = "Left Clicked";
+            } else if (event.button === 2) { // Right mouse button
+                message.textContent = "Right Clicked";
+            }
+        });
+
+        // Prevent the context menu from appearing on right click
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

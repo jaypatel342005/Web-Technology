@@ -1,0 +1,27 @@
+<!-- 2. Demonstrate the difference between let and var. (A) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab-7-2</title>
+</head>
+<body>
+<script type="text/javascript">
+	function display(){
+		if(true){      
+			let a = 5;
+			const b = 6;
+			var v = 7;
+			g = 8;
+			document.write("let and var can only be accessed in block"+"<br>");
+			document.write("let a = "+a+",const b = "+b+"<br>");
+		}
+		document.write("var can be accessed in whole function"+"<br>");
+		document.write("var v = "+v+"<br>");
+	}
+	display();
+	document.write("undefined variable can be used globally"+"<br>");
+	document.write("g = "+g);
+</script>
+</body>
+</html>
