@@ -52,13 +52,13 @@ Ensure you have the following tools installed on your local machine:
 1. **Clone the Repository**
 
    ```sh
-   git clone https://github.com/your_username/web-technology-solutions.git
+   git clone https://github.com/jaypatel342005/Web-Technology.git
    ```
 
 2. **Navigate to the Project Directory**
 
    ```sh
-   cd web-technology-solutions
+   cd Teb-Technology
    ```
 
 3. **Install the Dependencies**
@@ -128,6 +128,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - Jay Patel - pateljay97378@gmail.com
-Project Link: [https://github.com/jaypatel342005/Web-Technology](https://github.com/jaypatel342005/Web-Technology)
+1. Your Name - Jay Patel - pateljay97378@gmail.com 
+
+2. Project Link: [https://github.com/jaypatel342005/Web-Technology](https://github.com/jaypatel342005/Web-Technology)
 
