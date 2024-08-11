@@ -1,0 +1,15 @@
+{
+  "name": "web-technology",
+  "version": "1.0.0",
+  "description": " Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine, ideal for server-side applications. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaypatel342005/Web-Technology.git"
+  },
+  "author": "Jay Patel",
+  "license": "ISC"
+}
