@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Arial", sans-serif;
+      background: linear-gradient(to right, #74ebd5, #9face6);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Navigation bar styles */
+    nav {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px 0;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      position: relative;
+      padding: 10px;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      display: block;
+      background: #333;
+      transition: width 0.3s;
+      bottom: 0;
+      left: 0;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    /* Page content styles */
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      animation: fadeIn 2s;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 20px 0;
+      padding: 0 20px;
+      animation: fadeIn 2s;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Footer styles */
+    footer {
+      margin-top: 20px;
+      padding: 20px 0;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    footer p {
+      margin: 0;
+      color: #333;
+    }
+  </style>
+<body>
+    <h1>Services Page</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/contact">Contact</a>
+        <a href="/portfolio">Portfolio</a>
+    </nav>
+    <p>Welcome to the Services page!</p>
+</body>
+</html>

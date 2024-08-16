@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab-5-4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #b9adad;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #1659eb;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4588a0;
+        }
+
+        #ErrorMessage {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .crud-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .crud-container a {
+            text-decoration: none;
+        }
+
+        .crud-button {
+            background-color: #28a745;
+            /* Green background */
+            color: white;
+            /* White text */
+            border: none;
+            /* Remove borders */
+            padding: 12px 24px;
+            /* Add padding */
+            font-size: 16px;
+            /* Font size */
+            border-radius: 4px;
+            /* Rounded corners */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            /* Smooth transition */
+        }
+
+        .crud-button:hover {
+            background-color: #218838;
+            /* Darker green on hover */
+            transform: scale(1.05);
+            /* Slightly enlarge the button on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form" onsubmit="return validForm()">
+        <div>
+            <label for="Username">Username:</label>
+            <input type="text" id="Username" placeholder="Enter Username" required />
+        </div>
+        <div>
+            <label for="Password">Password:</label>
+            <input type="password" id="Password" placeholder="Enter Password" required />
+        </div>
+        <div>
+            <label for="Repeat">Repeat Password:</label>
+            <input type="password" id="Repeat" placeholder="Reenter Password" required />
+        </div>
+        <div>
+            <label for="Age">Age:</label>
+            <input type="number" id="Age" placeholder="Enter Age" required />
+        </div>
+        <div>
+            <label for="Enroll">Enrollment No:</label>
+            <input type="number" id="Enroll" placeholder="Enter Enrollment No." required />
+        </div>
+        <div>
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" placeholder="Enter Email" required />
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+        <p id="ErrorMessage"></p>
+    </form>
+    <div class="crud-container">
+        <a href="/"><button class="crud-button">CRUD</button></a>
+    </div>
+
+    <script>
+        function validForm() {
+            var error = document.getElementById("ErrorMessage");
+            error.innerHTML = "";
+
+            var user = document.getElementById("Username").value;
+            var pass = document.getElementById("Password").value;
+            var repeat = document.getElementById("Repeat").value;
+            var age = document.getElementById("Age").value;
+            var enroll = document.getElementById("Enroll").value;
+            var email = document.getElementById("Email").value;
+
+            if (user === "") {
+                error.innerHTML = "Please enter Username";
+                return false;
+            } else if (user.length < 8) {
+                error.innerHTML = "Invalid Username (must be at least 8 characters)";
+                return false;
+            }
+
+            var pass_pattern = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,12}$/;
+            if (pass === "") {
+                error.innerHTML = "Please Enter Password";
+                return false;
+            } else if (!pass_pattern.test(pass)) {
+                error.innerHTML = "Invalid Password (must be 8-12 characters, with at least one digit and special character)";
+                return false;
+            }
+
+            if (pass !== repeat) {
+                error.innerHTML = "Passwords do not match";
+                return false;
+            }
+
+            if (age === "") {
+                error.innerHTML = "Please enter age";
+                return false;
+            } else if (age < 18) {
+                error.innerHTML = "Age must be 18 or older";
+                return false;
+            }
+
+            if (enroll === "") {
+                error.innerHTML = "Please enter Enrollment Number";
+                return false;
+            } else if (enroll.length !== 11) {
+                error.innerHTML = "Invalid Enrollment Number (must be 11 digits)";
+                return false;
+            }
+
+            var email_pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email === "") {
+                error.innerHTML = "Please enter Email";
+                return false;
+            } else if (!email_pattern.test(email)) {
+                error.innerHTML = "Invalid Email format";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

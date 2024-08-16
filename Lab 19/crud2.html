@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #form {
+            width: 50%;
+            float: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #form input[type="text"],
+        #form button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        #form input[type="text"]:focus {
+            outline: none;
+            border-color: dodgerblue;
+            box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+        }
+
+        #errMsg {
+            color: red;
+            font-size: 12px;
+        }
+
+        #result {
+            margin-top: 20px;
+            width: 100%;
+            float: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #result table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #result th,
+        #result td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #result th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        #result td button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            border: none;
+            background-color: #f44336;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        #result td button:hover {
+            background-color: #d32f2f;
+        }
+
+        #result td:first-child {
+            width: 40%;
+        }
+
+        #result td:last-child {
+            text-align: center;
+        }
+
+        .validation1 {
+            background-color: #4CAF50;
+            /* Green background */
+            color: white;
+            /* White text */
+            border: none;
+            /* Remove borders */
+            padding: 15px 32px;
+            /* Add padding */
+            text-align: center;
+            /* Center-align text */
+            text-decoration: none;
+            /* Remove underline */
+            display: inline-block;
+            /* Get the button to sit inline */
+            font-size: 16px;
+            /* Increase font size */
+            margin: 10px 2px;
+            /* Margin for spacing */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            border-radius: 4px;
+            /* Rounded corners */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            /* Smooth background color transition and scale effect */
+        }
+
+        .validation1:hover {
+            background-color: #45a049;
+            /* Darker green on hover */
+            transform: scale(1.05);
+            /* Slightly enlarge the button on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="form">
+        <input type="text" id="txtName" placeholder="Enter name" /><br />
+        <input type="text" id="txtRollNo" placeholder="Enter RollNo" /><br />
+        <span id="errMsg"></span>
+        <br>
+        <button onclick="addStudent()" id="btn">Add</button>
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/validation"><button class="validation1">Validation</button></a>
+    </div>
+
+    <div id="result">
+        asdf
+    </div>
+
+    <script type="text/javascript">
+        students = [
+            {
+                name: 'Jay Patel',
+                rollNo: 191,
+
+            },
+            {
+                name: 'Rohit Sharma',
+                rollNo: 192,
+            }
+
+        ];
+        idToEdit = -1;
+
+        function displayStudent() {
+            temp = document.getElementById("result");
+            tempString = "";
+            tempString += "<table border='1'>";
+            for (i = 0; i < students.length; i++) {
+                tempString += "<tr>";
+                tempString += "<td>" + students[i].name + "</td>";
+                tempString += "<td>" + students[i].rollNo + "</td>"
+                tempString += "<td><button onclick='deleteStudent(" + i + ")'>Delete</button></td>";
+                tempString += "<td><button  onclick='setStudent(" + i + ")'>Edit</button></td>";
+                tempString += "</tr>";
+            }
+            tempString += "</table>";
+
+            temp.innerHTML = tempString;
+        }
+
+        displayStudent();
+
+        function setStudent(id) {
+            idToEdit = id;
+            document.getElementById('btn').innerHTML = "Edit";
+            document.getElementById('txtName').value = students[id].name;
+            document.getElementById('txtRollNo').value = students[id].rollNo;
+        }
+
+        function addStudent() {
+            tempStudent = document.getElementById("txtName");
+            tempObj = {
+                name: document.getElementById('txtName').value,
+                rollNo: document.getElementById('txtRollNo').value,
+
+            }
+
+            if (tempStudent.value == "") {
+                //invalid
+                tempStudent.style.border = "2px solid red";
+                document.getElementById('errMsg').innerHTML = "Please Enter Name";
+            } else {
+                if (idToEdit >= 0) {
+                    students[idToEdit] = tempObj;
+                    idToEdit = -1;
+                    document.getElementById('btn').innerHTML = "Add";
+                } else {
+                    students.push(tempObj);
+                }
+
+                document.getElementById('txtName').value = "";
+                document.getElementById('txtRollNo').value = "";
+                displayStudent();
+            }
+        }
+
+        function deleteStudent(id) {
+            students.splice(id, 1);
+            displayStudent();
+        }
+    </script>
+
+</body>
+
+</html>
