@@ -1,6 +1,4 @@
 
-
-```markdown
 ## 🚀 Introduction
 
 Welcome to the **Web Technology Solutions Repository**! 🌟 This repository provides comprehensive solutions for various web technology problems. It’s a valuable resource for both students and developers.
