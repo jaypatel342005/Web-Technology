@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Web%20Technology-HTML%20%7C%20CSS%20%7C%20Node.js%20%7C%20React-blue" alt="Web Technology Badge"/>
+  <img src="https://img.shields.io/badge/Web%20Technology-HTML%20%7C%20CSS%20%7C%20JAVASCRIPT%20%7C%20NODE.JS%20%7C%20REACT.JS-blue" alt="Web Technology Badge"/>
 </p>
 
 <h1 align="center">🌐 Web Technology Solutions Repository</h1>
