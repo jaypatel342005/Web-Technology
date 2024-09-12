@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../server2');  // Import your app
+const app = require('../serverofstudent');  // Import your app
 
 describe('Student API', () => {
   let studentId;
