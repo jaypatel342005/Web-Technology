@@ -1,0 +1,27 @@
+.navbar-header {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgb(130, 130, 130) 100%);
+  }
+  
+  .nav-link {
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    transform: scale(1.1);
+    color: #f8f9fa; /* Lighter shade on hover */
+  }
+  
+  .animated-button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .animated-button:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent white on hover */
+  }
+  
+  .footer {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
