@@ -11,7 +11,7 @@ function Faculty() {
 
   useEffect(() => {
     // Fetch faculties based on the current page
-    const apiUrl = `http://localhost:3001/faculties?page=${currentPage}`;
+    const apiUrl = `https://serverno.onrender.com/faculties?page=${currentPage}` || 'http://localhost:3001/faculties?page=${currentPage}';
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
@@ -31,7 +31,7 @@ function Faculty() {
   };
 
   const handleDelete = (facultyId) => {
-    const apiUrl = `http://localhost:3001/faculties/${facultyId}`;
+    const apiUrl = `https://serverno.onrender.com/faculties/${facultyId}`;
     fetch(apiUrl, {
       method: 'DELETE',
     })

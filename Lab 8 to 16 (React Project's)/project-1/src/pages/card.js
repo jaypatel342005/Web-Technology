@@ -12,7 +12,7 @@ function Card() {
   useEffect(() => {
     const fetchFacultyData = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/faculties?page=${currentPage}`); // Adjust the endpoint to your API
+        const response = await fetch(`https://serverno.onrender.com/faculties?page=${currentPage}`); // Adjust the endpoint to your API
         if (!response.ok) {
           throw new Error('Failed to fetch faculty data');
         }

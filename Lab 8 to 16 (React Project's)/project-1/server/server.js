@@ -93,13 +93,17 @@ app.get('/faculties/:id', asyncHandler(async (req, res) => {
 app.post('/faculties', validateFaculty, asyncHandler(async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+        console.log('Validation Errors:', errors.array()); // Log the errors
         return res.status(400).json({ errors: errors.array() });
     }
+
+    console.log('Request Data:', req.body); // Log the request body for debugging
 
     const newFaculty = new Faculty({ ...req.body });
     const savedFaculty = await newFaculty.save();
     res.status(201).send(savedFaculty);
 }));
+
 
 // Update faculty by ID with validation
 app.patch('/faculties/:id', validateFaculty, asyncHandler(async (req, res) => {

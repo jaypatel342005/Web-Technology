@@ -8,7 +8,7 @@ function FacultyDetail() {
   const { id } = useParams(); // Get the FacultyID from the URL
   
   useEffect(() => {
-    const apiUrl = `http://localhost:3001/faculties/${id}`; // Fix the URL construction
+    const apiUrl = `https://serverno.onrender.com/faculties/${id}` || 'http://localhost:3001/faculties/${id}'; // Fix the URL construction
     fetch(apiUrl)
       .then((res) => {
         if (!res.ok) {

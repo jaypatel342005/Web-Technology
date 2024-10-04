@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 
 function AddEditFaculty() {
-    const appurl = "http://localhost:3001"; // Update this URL to your API endpoint
+    const appurl = "https://serverno.onrender.com" ||  'http://localhost:3001'; // Update this URL to your API endpoint
     const navigate = useNavigate();
     const { id } = useParams(); // Get ID from URL params (if exists)
     const [facultyData, setFacultyData] = useState({}); // Store form input
@@ -14,13 +14,27 @@ function AddEditFaculty() {
     // Fetch existing faculties on component mount (for duplicate check when adding)
     useEffect(() => {
         const fetchExistingFaculties = async () => {
-            const apiUrl = `${appurl}/faculties`; // Endpoint to get all faculties
-            const response = await fetch(apiUrl);
-            if (response.ok) {
-                const data = await response.json();
-                setExistingFaculties(data); // Store existing faculties
+            try {
+                const apiUrl = `${appurl}/faculties`; // Endpoint to get all faculties
+                const response = await fetch(apiUrl);
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (Array.isArray(data)) {
+                        setExistingFaculties(data); // Store existing faculties
+                    } else {
+                        setExistingFaculties([]); // Ensure it defaults to an empty array if not an array
+                        console.error("Unexpected API response format, expected an array.", data);
+                    }
+                } else {
+                    setError("Failed to fetch existing faculties.");
+                }
+            } catch (err) {
+                console.error("Error fetching existing faculties:", err);
+                setError("An error occurred while fetching faculties.");
             }
         };
+
         fetchExistingFaculties();
     }, [appurl]);
 
@@ -28,18 +42,24 @@ function AddEditFaculty() {
     useEffect(() => {
         if (id) {
             const fetchFaculty = async () => {
-                const response = await fetch(`${appurl}/faculties/${id}`);
-                if (response.ok) {
-                    const data = await response.json();
-                    setFacultyData(data); // Pre-fill form with fetched data for editing
-                } else {
-                    setError("Failed to load faculty data for editing.");
+                try {
+                    const response = await fetch(`${appurl}/faculties/${id}`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        setFacultyData(data); // Pre-fill form with fetched data for editing
+                    } else {
+                        setError("Failed to load faculty data for editing.");
+                    }
+                } catch (err) {
+                    console.error("Error fetching faculty data:", err);
+                    setError("An error occurred while fetching faculty data.");
                 }
             };
+
             fetchFaculty();
         }
     }, [id, appurl]);
-
+    
     const handleSubmit = async () => {
         setIsLoading(true);
         setError(null);
@@ -81,29 +101,32 @@ function AddEditFaculty() {
         const apiUrl = id ? `${appurl}/faculties/${id}` : `${appurl}/faculties`;
         const method = id ? "PATCH" : "POST";
 
-        fetch(apiUrl, {
-            method: method,
-            body: JSON.stringify(facultyData),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(res => {
-            if (!res.ok) {
+        try {
+            const response = await fetch(apiUrl, {
+                method: method,
+                body: JSON.stringify(facultyData),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            if (!response.ok) {
                 throw new Error(id ? 'Failed to update faculty' : 'Failed to add faculty');
             }
-            return res.json();
-        })
-        .then(() => {
+
+            const result = await response.json();
+            console.log('Submission successful:', result);
+
             // Redirect to faculty list page after success
             navigate('/faculty');
-        })
-        .catch(err => {
+
+        } catch (err) {
+            console.error('Error during submission:', err);
             setError(err.message); // Set error message if the request fails
-        })
-        .finally(() => {
+
+        } finally {
             setIsLoading(false); // Stop loading after request completes
-        });
+        }
     };
 
     return (
